@@ -11,12 +11,12 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
   fontSize:18,
-  marginTop: theme.spacing(2),
+  marginTop: theme.spacing(1),
 }));
 
 export default function RowAndColumnSpacing() {
   return (
-    <Box sx={{ width: '100%', marginTop: 65 }}>
+    <Box sx={{ width: '100%', marginTop: 3}}>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6}>
           <Item>JavaScript empowers developers to dynamically adjust margins on web pages, 

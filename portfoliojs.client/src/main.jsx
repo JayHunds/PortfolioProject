@@ -4,11 +4,13 @@ import ResponsiveAppBar from '../src/Components/NavigationBar.jsx'
 import RowAndColumnSpacing from '../src/Components/CharacterStatements.jsx'
 import App from '../src/Components/DarkMode.jsx'
 import SpacingGrid from '../src/Components/RotatingCards.jsx'
+import InfiniteMovingCards from '../src/Components/EndlessCards.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <InfiniteMovingCards/>
     <ResponsiveAppBar/>
+    <SpacingGrid/>
     <RowAndColumnSpacing/>
     <App/>
-    <SpacingGrid/>
   </React.StrictMode>,
 )
