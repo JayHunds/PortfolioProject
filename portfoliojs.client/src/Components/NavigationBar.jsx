@@ -12,31 +12,32 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Modal from '@mui/material/Modal';
+const pages = [
+  { name: 'Contact Me', backgroundColor: '#4E4D5E' },
+  { name: 'My Projects', backgroundColor: '#4E4D5E' },
+];
 
-const pages = ['About Me', 'My Projects', ''];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-function ResponsiveAppBar() {
+export function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const toolbarColor = '#4E4D5E';
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const handleContactClick = () => {
+    setOpen(!open);
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: toolbarColor }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -56,7 +57,7 @@ function ResponsiveAppBar() {
           >
             Jayson A. Hundsrucker
           </Typography>
-
+  
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -87,8 +88,10 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center" style={{ backgroundColor: page.backgroundColor }}>
+                    {page.name}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -114,17 +117,40 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                key={page.name}
+                onClick={handleContactClick}
+                sx={{ my: 2, color: 'white', display: 'block', backgroundColor: page.backgroundColor }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="modal-modal-title"
+              aria-describedby="modal-modal-description"
+              sx={{color: '#D3D3D3'}}
+            >
+              <Box>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Jayson A. Hundsrucker
+                </Typography>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Phone:
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  509-237-5033
+                </Typography>
+                <Typography id="modal-modal-title" variant="h6" component="h2">
+                  Email:
+                </Typography>
+                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                  hundsruckerjayson@gmail.com
+                </Typography>
+              </Box>
+            </Modal>
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-          </Box>
+          <Box sx={{ flexGrow: 0 }}></Box>
         </Toolbar>
       </Container>
     </AppBar>

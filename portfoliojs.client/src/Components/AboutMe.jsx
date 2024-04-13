@@ -6,6 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import Paper from '@mui/material/Paper';
+import {Typography} from '@mui/material';
 
 export default function SpacingGrid() {
   const [spacing, setSpacing] = React.useState(2);
@@ -21,18 +22,21 @@ export default function SpacingGrid() {
   return (
     <Grid sx={{ flexGrow: 1 }} container spacing={2}>
       <Grid item xs={12}>
-        <Grid container justifyContent="center" spacing={spacing}>
+        <Grid container justifyContent="center" spacing={20}>
           {[0, 1, 2].map((value) => (
            <Grid sx={{marginTop: 3}} key={value} item>
               <Paper
                 sx={{
                   height: 600,
                   width: 400,
+                 backgroundColor: 'lightgray'
                   
-                  backgroundColor: (theme) =>
-                    theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
                 }}
-              />
+              >
+               {
+                  value === 0 ? <img src="" alt="Deez" /> : value === 1 ? <img src="/path/to/are.jpg" alt="Are" /> : <img src="/path/to/examples.jpg" alt="Examples" />
+               }
+                </Paper>
             </Grid>
           ))}
         </Grid>

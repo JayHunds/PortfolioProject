@@ -1,16 +1,21 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
-const darkTheme = createTheme({
+const customTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: 'light',
+    background: {
+      default: '#4E4D5E',
+    },
   },
 });
 
 export default function App() {
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={customTheme}>
       <CssBaseline />
+      {}
     </ThemeProvider>
   );
 }
+
