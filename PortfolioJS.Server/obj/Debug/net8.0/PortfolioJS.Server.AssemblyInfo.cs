@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PortfolioJS.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a03eb4d82596109fbf29b9459567f252f07344b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b3d7886a3ae98c8d4d0e031261599c59596da3fe")]
 [assembly: System.Reflection.AssemblyProductAttribute("PortfolioJS.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PortfolioJS.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
